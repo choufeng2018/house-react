@@ -1,0 +1,112 @@
+.platform-aside {
+  .ant-menu-root {
+    width: 100%;
+    display: block;
+    border: none;
+    background: #202020;
+  }
+  & > .ant-menu-item {
+    border-bottom: solid 1px #0069c2;
+  }
+  .ant-menu-submenu {
+    cursor: pointer;
+    .ant-menu-submenu-title {
+      padding-left: 20px !important;
+      font-size: 14px;
+      border-bottom: solid 1px #bdbbbb;
+      box-shadow: none;
+    }
+
+    .ant-menu-sub {
+      background-color: #e5e6e6;
+      a {
+        width: 100%;
+        display: block;
+        padding: 0 0 0 20px;
+        border-left: solid 1px #bdbbbb;
+      }
+      & > .ant-menu-item {
+        padding-left: 20px !important;
+        font-size: 14px;
+        &.ant-menu-item-selected {
+          a {
+            border-left: solid 1px #108ee9;
+          }
+        }
+        &:after{
+          right: 1px;
+        }
+      }
+    }
+
+  }
+
+  .ant-menu-item > a{
+    font-size: 14px;
+    border-bottom: solid 1px #bdbbbb;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+
+  .fa {
+    font-size: 16px;
+    width: 20px;
+    padding-right: 5px;
+  }
+}
+
+@keyframes expanding {
+  from {
+    width: 48px;
+  }
+  to {
+    width: 178px;
+  }
+}
+
+@keyframes folding {
+  from {
+    width: 178px;
+  }
+  to {
+    width: 48px;
+  }
+}
+
+@-ms-keyframes expanding {
+  from {
+    width: 48px;
+  }
+  to {
+    width: 178px;
+  }
+}
+
+@-ms-keyframes folding {
+  from {
+    width: 178px;
+  }
+  to {
+    width: 48px;
+  }
+}
+
+@-webkit-keyframes expanding {
+  from {
+    width: 48px;
+  }
+  to {
+    width: 178px;
+  }
+}
+
+@-webkit-keyframes folding {
+  from {
+    width: 178px;
+  }
+  to {
+    width: 48px;
+  }
+}
+

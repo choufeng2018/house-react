@@ -1,0 +1,10 @@
+.ant-tabs-tab{
+    display: inline-block;
+}
+.sendGoods{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 999
+}
