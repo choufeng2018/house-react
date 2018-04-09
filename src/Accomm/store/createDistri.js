@@ -16,7 +16,7 @@ const showEditModal = createAction(`${ID}是否显示编辑弹框`);
 const editModalAc = createFetchAction(`${SERVICE_API}/dormitory/editDormitory.php/`, [], 'POST');
 const getStudent = createFetchAction(`${SERVICE_API}/distri/getStudent.php/`, [], "GET");
 const getDistri = createFetchAction(`${SERVICE_API}/owner/getData.php?owner_house={{owner_house}}`, [], "GET");
-const deleteDistri = createFetchAction(`${SERVICE_API}/owner/deleteDistri.php/?stu_no={{stu_no}}`, [], "GET");
+const deleteDistri = createFetchAction(`${SERVICE_API}/owner/deleteData.php/?owner_no={{owner_no}}`, [], "GET");
 const saveDistriData = createAction(`${ID}保存某个宿舍的入住详情`);
 const saveSpinStatus = createAction(`${ID}保存spin框的状态`);
 export const actions = {

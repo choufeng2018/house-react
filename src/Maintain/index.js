@@ -7,11 +7,11 @@ import {Main} from '../_platform/layout/Main'
 import {ContainerRouters} from '../_platform/panels/ContainerRouters'
 import {Icon} from 'react-fa';
 import {actions as platformActions} from '../_platform/store/global'
-export default class Repair extends Component{
+export default class Maintain extends Component{
     async componentDidMount(){
         const {default: reducer} = await import('./store');
         // 要把注册reducer放到渲染组件之前
-        injectReducer('repair', reducer)
+        injectReducer('maintain', reducer)
         const Containers = await import('./containers');
         this.setState({...Containers});
     }
@@ -19,34 +19,34 @@ export default class Repair extends Component{
 		return (
 			<Body>
     			<Aside>
-    				<Submenu {...this.props} menus={Repair.menus} defaultOpenKeys={Repair.defaultOpenKeys}/>
+    				<Submenu {...this.props} menus={Maintain.menus} defaultOpenKeys={Maintain.defaultOpenKeys}/>
     			</Aside>
     			<Main>
-    				<ContainerRouters {...this.props} menus={Repair.menus} containers={this.state}/>
+    				<ContainerRouters {...this.props} menus={Maintain.menus} containers={this.state}/>
     			</Main>
 			</Body>
             );
 	}
     static menus = [{
-        key: 'WriteOrder',
-        id: 'order',
-        name: '报修单管理',
+        key: 'Receive',
+        id: 'receive',
+        name: '接单管理',
         exact: true,
-        path: '/repair',
+        path: '/maintain',
         icon: <Icon name="calendar-check-o"/>
     },{
-        key: 'Schedule',
-        id: 'schedule',
-        name: '维修进度查看',
+        key: 'setprogress',
+        id: 'setprogress',
+        name: '设置维修进度',
         exact: true,
-        path: '/repair/schedule',
+        path: '/maintain/setprogress',
         icon: <Icon name="calendar-check-o"/>
     },{
-        key: 'setevaluate',
-        id: 'setevaluate',
-        name: '维修评价',
+        key: 'Evaluate',
+        id: 'evaluate',
+        name: '查看评价',
         exact: true,
-        path: '/repair/setevaluate',
+        path: '/maintain/evaluate',
         icon: <Icon name="calendar-check-o"/>
     }
     // ,{
@@ -79,5 +79,4 @@ export default class Repair extends Component{
     //     }]
     // }
 ]
-    static defaultOpenKeys = ['repair']
 }

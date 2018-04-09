@@ -33,7 +33,7 @@ export default class DistriDetail extends Component{
     }
     async confirm(record){
         const {actions: {deleteDistri}} = this.props;
-        let rst = await deleteDistri({stu_no:record.stu_no});
+        let rst = await deleteDistri({owner_no:record.owner_no});
         if(rst[0].status === 'ok'){
             Notification.success({
                 message: '删除成功'

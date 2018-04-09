@@ -22,7 +22,6 @@ const FormItem = Form.Item;
 )
 class Login extends Component {
     componentDidMount(){
-        // const {default: reducer} = await import('../store/login');
         injectReducer('login', reducer);
     }
 

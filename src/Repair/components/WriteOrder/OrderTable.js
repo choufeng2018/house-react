@@ -76,6 +76,21 @@ export default class OrderTable extends Component{
         key: 'remark',
         width: '15%'
     },{
+        title: '是否接单',
+        key: 'accept',
+        width: '15%',
+        render: (text, record, index) => {
+            if (record.accept) {
+                return (
+                    <span style = {{color: 'red'}}>未接单</span>
+                )
+            }else{
+                return (
+                    <a>已接单</a>
+                )
+            }
+        }
+    },{
         title: '操作',
         key: 'operation',
         render: (text, record, indx) => (

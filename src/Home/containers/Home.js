@@ -22,11 +22,11 @@ export default class Home extends Component{
                         <Students {...this.props} />
                     </Col>
                 </Row>
-                <Row>
+                {/* <Row>
                     <Col span={11}>
                         <News {...this.props} />
                     </Col>
-                </Row>
+                </Row> */}
             </div>
         )
     }

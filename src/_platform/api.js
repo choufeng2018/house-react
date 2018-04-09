@@ -26,7 +26,7 @@ export let MODULES = [{
         key: 'notice'
     }]
 },{
-    module: '维修报修',
+    module: '报修管理',
     checked: false,
     key: 'repair',
     children: [{
@@ -34,22 +34,30 @@ export let MODULES = [{
         checked: false,
         key: 'order'
     },{
-        module: '维修管理',
+        module: '维修进度查看',
         checked: false,
-        key: 'fix',
-        children: [{
-            module: '维修查看',
-            checked: false,
-            key: 'detail'
-        },{
-            module: '维修进度',
-            checked: false,
-            key: 'progress'
-        },{
-            module: '维修评价',
-            checked: false,
-            key: 'evalute'
-        }]
+        key: 'schedule'
+    },{
+        module: '维修评价',
+        checked: false,
+        key: 'setevaluate'
+    }]
+},{
+    module: '维修管理',
+    checked: false,
+    key: 'maintain',
+    children: [{
+        module: '接单管理',
+        checked: false,
+        key: 'receive'
+    },{
+        module: '设置维修进度',
+        checked: false,
+        key: 'setprogress'
+    },{
+        module: '查看评价',
+        checked: false,
+        key: 'evaluate'
     }]
 },{
     module: '学生住宿',

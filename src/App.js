@@ -18,6 +18,7 @@ import Accomm from './Accomm';
 import Message from './Message';
 import Access from './Access';
 import Tools from './Tools';
+import Maintain from './Maintain';
 class App extends Component {
     render() {
         return (
@@ -30,6 +31,7 @@ class App extends Component {
                         {Home && <Route path="/home" component={Home} />}
                         {Overall && <Route path="/overall" component={Overall} />}
                         {Repair && <Route path="/repair" component={Repair} />}
+                        {Maintain && <Route path="/maintain" component={Maintain} />}
                         {System && <Route path="/system" component={System} />}
                         {Accomm && <Route path="/accomm" component={Accomm} />}
                         {Message && <Route path="/message" component={Message} />}

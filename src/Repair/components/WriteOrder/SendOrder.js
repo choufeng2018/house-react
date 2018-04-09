@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Modal, Row, Col, Form, Notification, Input} from 'antd';
 import moment from 'moment';
-const FormItem = Form.Item
+import {getCookie} from '../../../_platform/cookie';
+const FormItem = Form.Item;
 class SendOrder extends Component{
     constructor(props){
         super(props);
@@ -11,10 +12,15 @@ class SendOrder extends Component{
         validateFields(async (err, values) => {
             if (!err) {
                 if (showOrder.type === 'add') {
+                    let login_info = JSON.parse(getCookie('login'));
+                    let person;
+                    if (login_info[0].flag === 'stu') {
+                        person = login_info[0].owner_name;
+                    }
                     let data = {
                         code: moment().format("YYYYMMDDHHmmss"),
                         content: values['content'],
-                        person: values['person'],
+                        person: person,
                         place: values['place'],
                         tel: values['tel'],
                         remark: values['remark']
@@ -95,18 +101,6 @@ class SendOrder extends Component{
                                     initialValue: ''
                                 })(
                                     <Input type='text' placeholder='请输入报修内容'/>
-                                )}
-                            </FormItem>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col span = {16} offset = {3}>
-                            <FormItem {...formItemLayout} label = '报修人'>
-                                {getFieldDecorator('person',{
-                                    rules: [{required: true, message: '请输入报修人'}],
-                                    initialValue: ''
-                                })(
-                                    <Input type='text' placeholder='请输入报修人'/>
                                 )}
                             </FormItem>
                         </Col>

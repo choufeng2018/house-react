@@ -74,14 +74,10 @@ class CreateDistri extends Component{
     }
     componentWillReceiveProps(nextProps){
         let {node = []} = nextProps;
-        if (node.length === 0) {
-            return;
-        }
-        let dor_name = node[0].dor_name;
-        this.setState({dor_name});
+
     }
     componentDidMount(){
-        const {distriDor = {type: 'add'}, form: {setFieldsValue}, editData} = this.props;
+        const {distriDor = {type: 'add'}, form: {setFieldsValue}, editData, node = []} = this.props;
         if (distriDor.type === 'edit') {
             setFieldsValue({
                 owner_no: editData.owner_no,
@@ -94,6 +90,11 @@ class CreateDistri extends Component{
                 owner_house: editData.owner_house
             })
         }
+        if (node.length === 0) {
+            return;
+        }
+        let dor_name = node[0].dor_name;
+        this.setState({dor_name});
     }
     findData(originData, stu_no){
         for (var i = 0; i < originData.length; i++) {

@@ -23,7 +23,7 @@ export default class Header extends Component {
         let name = '';
         switch (login && login[0].flag) {
             case 'stu':{
-                name = login[0].stu_name;
+                name = login[0].owner_name;
                 break;
             }
             case 'dor':{
@@ -32,6 +32,10 @@ export default class Header extends Component {
             }
             case 'admin':{
                 name = login[0].rel_name;
+                break;
+            }
+            case 'rep': {
+                name = login[0].repman_name;
                 break;
             }
             default:
@@ -127,10 +131,16 @@ export default class Header extends Component {
 	}, {
 		key: 'repair',
 		id: 'repair',
-		title: '报修和维修管理',
+		title: '报修管理',
 		path: '/repair',
-		icon: <Icon name="wrench"/>
+		icon: <Icon name="pencil-square"/>
 	}, {
+        key: 'maintain',
+		id: 'maintain',
+		title: '维修管理',
+		path: '/maintain',
+		icon: <Icon name="wrench"/>
+    },{
 		key: 'accomm',
 		id: 'accomm',
 		title: '业主管理',

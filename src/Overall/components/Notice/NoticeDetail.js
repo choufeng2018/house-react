@@ -6,7 +6,7 @@ export default class NoticeDetail extends Component{
         console.log(notice_content);
         return (
             <Modal
-                title="具体新闻"
+                title="公告内容详情"
                 visible = {notice_detail}
                 width="50%"
                 onOk = {() => {
