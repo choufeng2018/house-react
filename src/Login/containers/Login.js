@@ -10,6 +10,7 @@ import reducer from '../store/login'
 import './Login.less';
 import img from './img/intro.png';
 import {addCookie, deleteCookie} from '../../_platform/cookie';
+import moment from 'moment';
 const FormItem = Form.Item;
 @connect(
     state => {
@@ -27,7 +28,7 @@ class Login extends Component {
 
     login(){
         const {
-            actions:{getLogin, getPermission},
+            actions:{getLogin, getPermission, setVisit},
             form:{validateFields}
         } = this.props;
         validateFields(async (err, values) => {
@@ -60,6 +61,9 @@ class Login extends Component {
                         duration:2,
                         message:"登录成功!!"
                     })
+                    let date = moment().format('YYYY-MM-DD');
+                    let rst = await setVisit({visit_time: date});
+                    console.log("rst:",rst);
                     // 登录成功，跳转
                     const {history} = this.props;
                     history.replace('/home')

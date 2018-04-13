@@ -1,20 +1,42 @@
 import React,{Component} from 'react';
-import {Card} from 'antd'
+import {Card, Spin} from 'antd'
 import echarts from 'echarts'
 import './Students.less';
 import moment from 'moment';
+import {actions} from '../store/home';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+@connect(
+    state => {
+        return {...state}
+    },
+    dispatch => ({
+        actions: bindActionCreators({...actions}, dispatch)
+    })
+)
 export class Students extends Component{
-
+    constructor(props){
+        super(props);
+        this.state = {
+            spin: false
+        }
+    }
     render(){
         return (
-            <Card title = '近五天登录人数' >
-                <div id="main" style={{height:'350px', width: '600px'}}></div>
+            <Card title = '近五天访问人数' >
+                <Spin spinning = {this.state.spin}><div id="main" style={{height:'350px', width: '600px'}}></div></Spin>
             </Card>
         )
     }
-    componentDidMount(){
+    async componentDidMount(){
+         const {actions: {getVisit}} = this.props;
+         this.setState({spin: true});
+         let rst = await getVisit();
+         let data = rst.map((item, index) => {
+             return item.visit_num
+         });
+         let data_new = data.reverse().join("")
          var myChart = echarts.init(document.getElementById('main'));
-         console.log(moment().format('MM/DD'));
          myChart.setOption({
              tooltip: {},
              xAxis: {
@@ -40,13 +62,40 @@ export class Students extends Component{
                  }
              },
              series: [{
-                 name: '登录人数',
+                 name: '访问人数',
                  type: 'bar',
-                 data: [5, 20, 36, 10, 10],
+                 data: data_new,
                  itemStyle: {
-                     barBorderRadius:10
-                 }
+                     normal: {
+                         barBorderWidth: 2,
+                         barBorderRadius:10,
+                         color: "rgb(37, 132, 210)",
+                     }
+                 },
+                 // markLine : {
+                 //    itemStyle:{
+                 //       normal:{
+                 //           lineStyle:{
+                 //               type: 'dashed'
+                 //           }
+                 //       }
+                 //    },
+                 //    data : [
+                 //        [{type : 'min'}, {type : 'max'}]
+                 //    ]
+                 // }
+             },{
+                 type: 'line',
+                 data: data_new,
+                 symbolSize: 0,
+                 smooth: true,
+                 itemStyle: {
+                     normal: {
+                         color: "#27b6c9"
+                     }
+                 },
              }]
          })
+         this.setState({spin: false});
     }
 }

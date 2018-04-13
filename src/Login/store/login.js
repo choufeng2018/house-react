@@ -8,10 +8,12 @@ const ID = "LOGIN_USER";
 const getLogin = createFetchAction(`${LOGIN_API}/index.php/?user_name={{user_name}}&user_pass={{user_pass}}`, [], 'GET')
 const fieldReducer = fieldFactory(ID, 'addition');
 const getPermission = createFetchAction(`${SERVICE_API}/permission/getData.php?perm_name={{perm_name}}`, [], "GET");
+const setVisit = createFetchAction(`${SERVICE_API}/visit/setVisit.php?visit_time={{visit_time}}`, [], 'GET');
 export const actions = {
     ...fieldReducer,
     getLogin,
-    getPermission
+    getPermission,
+    setVisit
 }
 export default handleActions({
 	[combineActions(...actionsMap(fieldReducer))]: (state, action) => ({
