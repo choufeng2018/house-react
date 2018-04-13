@@ -1,9 +1,21 @@
 import React, {Component} from 'react';
 import {Menu, Tooltip} from 'antd';
 import {Icon} from 'react-fa';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
 import './Header.less';
 import {Link} from 'react-router-dom';
-import {getCookie, isCookieKey} from '../cookie';
+import {getCookie, isCookieKey, deleteCookie} from '../cookie';
+import {actions as platformActions} from '../store/global';
+import {store} from '../../store'
+@connect(
+    state => {
+        return {...state}
+    },
+    dispatch => ({
+        actions: bindActionCreators({...platformActions}, dispatch)
+    })
+)
 export default class Header extends Component {
     constructor(props){
         super(props);
@@ -100,20 +112,18 @@ export default class Header extends Component {
 	}
 
 	signOut() {
-		const {history} = this.props;
-		let remember = window.localStorage.getItem('QH_LOGIN_REMEMBER');
-		if(!remember){
-			window.localStorage.removeItem('QH_LOGIN_USER');
-		}
+		const {history, actions: {clearTab}} = this.props;
+        let keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+        if(keys) {
+            for(var i = keys.length; i--;)
+            document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+        }
 		setTimeout(() => {
-			history.replace('/');
+			// history.replace('/');
+			window.location.href = '/';
+			clearTab()
 		}, 500);
-	}
-
-	Download() {
-
-	}
-
+    }
 	static ignoreModules = ['login'];
 
 	static menus = [{
@@ -153,16 +163,22 @@ export default class Header extends Component {
 		path: '/access',
 		icon: <Icon name="lock"/>
 	}, {
-		key: 'tools',
-		title: '费用管理',
-		id: 'tools',
-		path: '/tools',
-		icon: <Icon name="gavel"/>
+		key: 'message',
+		title: '留言管理',
+		id: 'MsgManage',
+		path: '/message',
+		icon: <Icon name="comments"/>
 	},{
 		key: 'setup',
 		id: 'setup',
 		title: '系统配置',
 		path: '/system',
 		icon: <Icon name="gear"/>
-	}]
+	},{
+        key: 'self',
+        id: 'self',
+        title: '个人中心',
+        path: '/self',
+        icon: <Icon name='user-circle-o' />
+    }]
 }

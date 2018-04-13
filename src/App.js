@@ -17,8 +17,8 @@ import System from './System';
 import Accomm from './Accomm';
 import Message from './Message';
 import Access from './Access';
-import Tools from './Tools';
 import Maintain from './Maintain';
+import Self from './Self';
 class App extends Component {
     render() {
         return (
@@ -36,7 +36,7 @@ class App extends Component {
                         {Accomm && <Route path="/accomm" component={Accomm} />}
                         {Message && <Route path="/message" component={Message} />}
                         {Access && <Route path="/access" component={Access} />}
-                        {Tools && <Route path="/tools" component={Tools} />}
+                        {Self && <Route path="/self" component={Self} />}
                     </div>
                 </BrowserRouter>
             </Provider>

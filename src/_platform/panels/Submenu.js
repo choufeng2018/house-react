@@ -82,7 +82,6 @@ export class Submenu extends Component {
 				if (menu.path === pathname) selectedKeys.push(menu.key);
 			}
 		});
-        console.log("selectedKeys:",selectedKeys);
 		return selectedKeys;
 	}
 };

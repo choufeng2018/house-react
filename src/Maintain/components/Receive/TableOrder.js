@@ -40,7 +40,8 @@ export default class TableOrder extends Component{
         this.setState({spin: true})
         const {actions: {getRepair}} = this.props;
         this.setState({spin: true})
-        let rst = await getRepair();
+        let login_info = JSON.parse(getCookie('login'));
+        let rst = await getRepair({receive: login_info[0].repman_name});
         let dataSource1 = [], dataSource2 = [];
         for (let i = 0; i < rst.length; i++) {
             if (rst[i].accept === '0') {
@@ -53,7 +54,7 @@ export default class TableOrder extends Component{
     }
     // 接单函数
     async acceptOrder(record){
-        const {actions: {setAcceptShow, saveOrderData, acceptOrderAc}} = this.props;
+        const {actions: {saveOrderData, acceptOrderAc}} = this.props;
         let login_info = JSON.parse(getCookie("login"));
         let rst = await acceptOrderAc({code: record.code, receive: login_info[0].repman_name})
         if (rst[0].status === 'ok') {

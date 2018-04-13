@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Table, Modal, Notification, Divider, Spin, Popconfirm} from 'antd';
-import {Icon} from 'react-fa'
+import {Icon} from 'react-fa';
+import {getCookie} from '../../../_platform/cookie'
 export default class OrderTable extends Component{
     constructor(props){
         super(props)
@@ -31,7 +32,8 @@ export default class OrderTable extends Component{
     async componentDidMount(){
         const {actions: {getRepair}} = this.props;
         this.setState({spin: true})
-        let rst = await getRepair();
+        let login_info = JSON.parse(getCookie('login'));
+        let rst = await getRepair({person: login_info[0].owner_name});
         this.setState({dataSource: rst, spin: false})
     }
     edit(record){
@@ -80,7 +82,7 @@ export default class OrderTable extends Component{
         key: 'accept',
         width: '15%',
         render: (text, record, index) => {
-            if (record.accept) {
+            if (record.accept === '0') {
                 return (
                     <span style = {{color: 'red'}}>未接单</span>
                 )
@@ -90,6 +92,10 @@ export default class OrderTable extends Component{
                 )
             }
         }
+    },{
+        title: '维修人',
+        key: 'receive',
+        dataIndex: 'receive'
     },{
         title: '操作',
         key: 'operation',

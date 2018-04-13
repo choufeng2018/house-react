@@ -17,7 +17,7 @@ export default handleActions({
 		const key = action.payload;
 		return state.filter((tab, index) => index != key);
 	},
-	[clearTab]: () => {
+	[clearTab]: (state = [], {payload}) => {
 		return [];
 	},
 }, []);

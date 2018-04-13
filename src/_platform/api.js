@@ -1,4 +1,4 @@
-export const DOMAIN = "http://localhost";
+export const DOMAIN = "http://2048v9t891.iok.la";
 export const PORT = "80";
 export const LOGIN_API = `${DOMAIN}:${PORT}/house/login`;
 export const SERVICE_API = `${DOMAIN}:${PORT}/house/service`;
@@ -16,11 +16,13 @@ export let MODULES = [{
     module: '综合管理',
     checked: false,
     key: 'overall',
-    children: [{
-        module: '新闻管理',
-        checked: false,
-        key: 'news'
-    },{
+    children: [
+    //     {
+    //     module: '新闻管理',
+    //     checked: false,
+    //     key: 'news'
+    // },
+    {
         module: '公告管理',
         checked: false,
         key: 'notice'
@@ -60,11 +62,11 @@ export let MODULES = [{
         key: 'evaluate'
     }]
 },{
-    module: '学生住宿',
+    module: '业主管理',
     checked: false,
     key: 'accomm',
     children: [{
-        module: '分配宿舍',
+        module: '业主登记',
         checked: false,
         key: 'distri'
     }]
@@ -76,23 +78,38 @@ export let MODULES = [{
         module: '来访人登记',
         checked: false,
         key: 'visit',
-    },{
-        module: '外带物品登记',
+    }
+    // ,{
+    //     module: '外带物品登记',
+    //     checked: false,
+    //     key: 'goods',
+    // }
+]
+},{
+    module: '留言管理',
+    checked: false,
+    key: 'MsgManage',
+    children: [{
+        module: '留言管理',
         checked: false,
-        key: 'goods',
+        key: 'message',
+    },{
+        module: '留言查看',
+        checked: false,
+        key: 'msgdetail',
     }]
 },{
-    module: '工具管理',
+    module: '个人中心',
     checked: false,
-    key: 'tools',
+    key: 'self',
     children: [{
-        module: '工具借用',
+        module: '个人信息',
         checked: false,
-        key: 'borrow',
+        key: 'selfinfo'
     },{
-        module: '工具领用',
+        module: '个人密码',
         checked: false,
-        key: 'receive',
+        key: 'selfpass'
     }]
 },{
     module: '系统配置',

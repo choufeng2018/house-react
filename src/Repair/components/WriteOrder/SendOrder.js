@@ -15,7 +15,7 @@ class SendOrder extends Component{
                     let login_info = JSON.parse(getCookie('login'));
                     let person;
                     if (login_info[0].flag === 'stu') {
-                        person = login_info[0].owner_name;
+                        person = login_info[0].owner_name || login_info[0].rel_name;
                     }
                     let data = {
                         code: moment().format("YYYYMMDDHHmmss"),

@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import {actions as platformActions} from '../../_platform/store/global';
 import {actions} from '../store/RepairEvalute'
-import {OrderTable, ModalEvalute} from '../components/RepairEvalute'
+import {OrderTable, ModalEvalute} from '../components/SetEvaluate'
 @connect(
     state => {
         const {repair: {repairEvalute = {}}} = state
@@ -16,13 +16,14 @@ import {OrderTable, ModalEvalute} from '../components/RepairEvalute'
         actions: bindActionCreators({...platformActions, ...actions}, dispatch)
     })
 )
-export class RepairEvalute extends Component{
+export class SetEvaluate extends Component{
     render(){
+        const {showEvalute = {show: false}} = this.props;
         return(
             <div style={{overflow: 'hidden', padding: 20, 'position':'relative'}}>
                 <DynamicTitle title="维修评价" {...this.props}/>
                 <OrderTable {...this.props} />
-                <ModalEvalute {...this.props} />
+                {showEvalute.show && <ModalEvalute {...this.props} />}
             </div>
         )
     }

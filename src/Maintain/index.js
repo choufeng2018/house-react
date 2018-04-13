@@ -35,7 +35,7 @@ export default class Maintain extends Component{
         path: '/maintain',
         icon: <Icon name="calendar-check-o"/>
     },{
-        key: 'setprogress',
+        key: 'SetProgress',
         id: 'setprogress',
         name: '设置维修进度',
         exact: true,

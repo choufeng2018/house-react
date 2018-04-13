@@ -23,7 +23,7 @@ const makeRootReducer = (asyncReducers) => {
 	});
 };
 
-const store = createStore(
+export const store = createStore(
 	makeRootReducer({}),
 	initialState,
 	composeEnhancers(

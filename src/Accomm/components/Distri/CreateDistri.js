@@ -45,7 +45,7 @@ class CreateDistri extends Component{
                     let rst = await putDistri({},data);
                     if (rst[0].status === "ok") {
                         Notification.success({
-                            message: '变更成功'
+                            message: '录入成功'
                         });
                         is_fresh({
                             fre: true,
@@ -53,7 +53,7 @@ class CreateDistri extends Component{
                         });
                     }else{
                         Notification.success({
-                            message: '变更失败'
+                            message: '录入失败'
                         })
                     }
                 }

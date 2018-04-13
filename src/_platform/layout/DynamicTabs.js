@@ -31,7 +31,6 @@ export default class DynamicTabs extends Component {
 		if (index === -1) {
 			index = 0;
 		}
-        console.log("index:",index);
 		return (
 			<div className="dynamic-tabs">
 				<div className="drawer" onClick={this.toggle.bind(this)}>
@@ -55,7 +54,6 @@ export default class DynamicTabs extends Component {
 	edit(targetKey, action) {
 		this[action](targetKey);
 	}
-
 	remove(targetKey) {
 		const {tabs = [], location: {pathname = ''} = {}, actions: {removeTab}, history} = this.props;
 		let index = tabs.findIndex(tab => {
@@ -74,7 +72,6 @@ export default class DynamicTabs extends Component {
 		}
 		removeTab(targetKey);
 	}
-
 	toggle() {
 		// const {toggleAside} = this.props.actions;
 		// toggleAside();

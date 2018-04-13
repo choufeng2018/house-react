@@ -42,7 +42,7 @@ export default class Repair extends Component{
         path: '/repair/schedule',
         icon: <Icon name="calendar-check-o"/>
     },{
-        key: 'setevaluate',
+        key: 'SetEvaluate',
         id: 'setevaluate',
         name: '维修评价',
         exact: true,

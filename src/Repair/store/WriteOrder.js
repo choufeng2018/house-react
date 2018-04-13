@@ -6,7 +6,7 @@ const setOrderEdit = createAction(`${ID}编辑报修单`);
 const setWriteShow = createAction(`${ID}填写报修单显示`);
 const setEditData = createAction(`${ID}存储变更的数据`);
 const saveRepair = createAction(`${ID}存储获取的报修单信息`);
-const getRepair = createFetchAction(`${SERVICE_API}/repair/getData.php`, [saveRepair], 'GET');
+const getRepair = createFetchAction(`${SERVICE_API}/repair/getDataByperson.php?person={{person}}`, [saveRepair], 'GET');
 const postRepair = createFetchAction(`${SERVICE_API}/repair/index.php`, [], "POST");
 const deleteRepair = createFetchAction(`${SERVICE_API}/repair/deleteData.php?code={{code}}`, [], "GET");
 const putRepair = createFetchAction(`${SERVICE_API}/repair/putData.php`, [], "POST");

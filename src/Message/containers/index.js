@@ -1,2 +1,3 @@
 import MsgManage from './MsgManage';
-export {MsgManage}
+import MsgDetail from './MsgDetail';
+export {MsgManage, MsgDetail}

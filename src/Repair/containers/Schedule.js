@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
 import {actions as platformActions} from '../../_platform/store/global';
 import {actions} from '../store/RepairProgress'
-import {OrderTable, ModalProgress} from '../components/RepairProgress'
+import {OrderTable, ModalProgress} from '../components/Schedule'
 @connect(
     state => {
         const {repair: {repairProgress}} = state
@@ -16,7 +16,7 @@ import {OrderTable, ModalProgress} from '../components/RepairProgress'
         actions: bindActionCreators({...platformActions, ...actions}, dispatch)
     })
 )
-export class RepairProgress extends Component{
+export class Schedule extends Component{
     render(){
         return(
             <div style={{overflow: 'hidden', padding: 20, 'position':'relative'}}>
