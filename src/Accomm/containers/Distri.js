@@ -39,7 +39,7 @@ export default class Dirsti extends Component{
         const {distriDor = {show: false}} = this.props;
         return (
             <div style={{overflow: 'hidden', 'position':'relative'}}>
-                <DynamicTitle title = "分配宿舍" {...this.props} />
+                <DynamicTitle title = "业主登记" {...this.props} />
                 <Sidebar>
                     <SubTree {...this.props} />
                 </Sidebar>

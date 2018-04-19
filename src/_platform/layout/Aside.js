@@ -51,7 +51,7 @@ export class Aside extends Component {
 		const height = window.innerHeight;
 		let minHeight = height - 188;
 		if (width > 1200) {
-			minHeight = height - 170
+			minHeight = height - 118;
 		}
 		this.setState({minHeight});
 	}

@@ -11,7 +11,7 @@ class CreateVisit extends Component{
                     visit_name: values['visit_name'],
                     visit_person: values['visit_person'],
                     visit_rela: values['visit_rela'],
-                    visit_acti: values['visit_acti'],
+                    visit_tel: values['visit_tel'],
                     visit_entry: values['visit_entry'],
                     visit_leave: values['visit_leave'],
                     visit_dor: values['visit_dor']
@@ -72,12 +72,12 @@ class CreateVisit extends Component{
                         </Col>
                         <Col span = {16} offset = {3}>
                             <Row>
-                                <FormItem {...formItemLayout} label = '访问宿舍'>
+                                <FormItem {...formItemLayout} label = '访问门牌号'>
                                     {getFieldDecorator('visit_dor', {
-                                        rules: [{required: true, message: '请输入访问宿舍'}],
+                                        rules: [{required: true, message: '请输入访问门牌号'}],
                                         initial: ''
                                     })(
-                                        <Input placeHolder = '请输入访问宿舍' />
+                                        <Input placeHolder = '请输入访问门牌号' />
                                     )}
                                 </FormItem>
                             </Row>
@@ -96,24 +96,24 @@ class CreateVisit extends Component{
                         </Col>
                         <Col span = {16} offset = {3}>
                             <Row>
-                                <FormItem {...formItemLayout} label = '与被访者关系'>
-                                    {getFieldDecorator('visit_rela', {
-                                        rules: [{required: true, message: '请输入与被访者关系'}],
+                                <FormItem {...formItemLayout} label = '手机号'>
+                                    {getFieldDecorator('visit_tel', {
+                                        rules: [{required: true, message: '请输入手机号', pattern: /^1\d{10}$/}],
                                         initial: ''
                                     })(
-                                        <Input placeHolder = '请输入与被访者关系' />
+                                        <Input placeHolder = '请输入手机号' />
                                     )}
                                 </FormItem>
                             </Row>
                         </Col>
                         <Col span = {16} offset = {3}>
                             <Row>
-                                <FormItem {...formItemLayout} label = '访问活动'>
-                                    {getFieldDecorator('visit_acti', {
-                                        rules: [{required: true, message: '请输入访问活动'}],
+                                <FormItem {...formItemLayout} label = '与被访者关系'>
+                                    {getFieldDecorator('visit_rela', {
+                                        rules: [{required: true, message: '请输入与被访者关系'}],
                                         initial: ''
                                     })(
-                                        <Input placeHolder = '请输入访问活动' />
+                                        <Input placeHolder = '请输入与被访者关系' />
                                     )}
                                 </FormItem>
                             </Row>

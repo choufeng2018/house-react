@@ -24,7 +24,7 @@ export class Students extends Component{
     render(){
         return (
             <Card title = '近五天访问人数' >
-                <Spin spinning = {this.state.spin}><div id="main" style={{height:'350px', width: '600px'}}></div></Spin>
+                <Spin spinning = {this.state.spin}><div id="main" style={{height:'360px', width: '600px'}}></div></Spin>
             </Card>
         )
     }
@@ -35,7 +35,7 @@ export class Students extends Component{
          let data = rst.map((item, index) => {
              return item.visit_num
          });
-         let data_new = data.reverse().join("")
+         let data_new = data.reverse();
          var myChart = echarts.init(document.getElementById('main'));
          myChart.setOption({
              tooltip: {},
@@ -43,6 +43,10 @@ export class Students extends Component{
                  data: [moment().subtract(4, 'days').format('MM/DD'), moment().subtract(3, 'days').format('MM/DD'), moment().subtract(2, 'days').format('MM/DD'), moment().subtract(1, 'days').format('MM/DD'), moment().format('MM/DD')],
                  axisTick: {
                      show:false
+                 },
+                 axisLabel: {
+                     padding: [15, 0, 0, 0],
+                     fontSize: 16
                  }
              },
              yAxis: {
@@ -53,9 +57,10 @@ export class Students extends Component{
              grid: {
                  top: '5',
                  bottom: '25',
-                 left:'23'
+                 left:'23',
+                 height:'315'
              },
-             barWidth: 30,
+             barWidth: 20,
              yAxis: {
                  axisTick:{
                      show:false
@@ -67,7 +72,6 @@ export class Students extends Component{
                  data: data_new,
                  itemStyle: {
                      normal: {
-                         barBorderWidth: 2,
                          barBorderRadius:10,
                          color: "rgb(37, 132, 210)",
                      }

@@ -7,10 +7,12 @@ import {actions} from '../store/login'
 import {injectReducer} from '../../store'
 import {Link} from 'react-router-dom'
 import reducer from '../store/login'
-import './Login.less';
 import img from './img/intro.png';
 import {addCookie, deleteCookie} from '../../_platform/cookie';
 import moment from 'moment';
+import './Login.less';
+import './loading.css';
+import './animate.css';
 const FormItem = Form.Item;
 @connect(
     state => {
@@ -22,10 +24,15 @@ const FormItem = Form.Item;
     })
 )
 class Login extends Component {
-    componentDidMount(){
-        injectReducer('login', reducer);
+    constructor(props){
+        super(props);
+        this.state = {
+            loading: true
+        }
     }
-
+    // componentDidMount(){
+    //     injectReducer('login', reducer);
+    // }
     login(){
         const {
             actions:{getLogin, getPermission, setVisit},
@@ -77,7 +84,7 @@ class Login extends Component {
             }
         })
     }
-    componentDidMount(){
+    code(){
         let canvas = document.getElementById('checkCode');
         var ctx = canvas.getContext("2d");
         //随机函数
@@ -119,13 +126,38 @@ class Login extends Component {
         let code1 = generateCode();
         this.setState({checkCode: code1})
     }
+    componentDidMount(){
+        setTimeout(() => {
+            this.setState({loading: false});
+            this.code();
+        }, 3800)
+        if(this.state.loading){
+            return;
+        }
+
+    }
     changeCheck(){
-        this.componentDidMount();
+        this.code();
     }
     render(){
         const {actions:{changeAdditionField},form:{validateFields, getFieldDecorator}} = this.props;
         return (
             <div className="wrap">
+                {this.state.loading ? <div className="htmleaf-container">
+            		<div className="demo" >
+            	        <div className="container">
+            	            <div className="row">
+            	                <div className="col-md-12">
+            	                    <div className="loader">
+            	                        <div className="loading-1"></div>
+            	                        <div className="loading-2">Loading...</div>
+            	                    </div>
+            	                </div>
+            	            </div>
+            	        </div>
+            	    </div>
+            	</div>
+                :
                 <div className="wrap_content">
                     <div className="login_box">
                         <div className = 'left'>
@@ -181,18 +213,17 @@ class Login extends Component {
                                             })(
                                                 <Checkbox style={{position: 'absolute', bottom: '40px'}}>记住密码</Checkbox>
                                                 )}
-                                            <a className="login-form-forgot" href="">忘记密码</a>
+                                            {/* <a className="login-form-forgot" href="">忘记密码</a> */}
                                             <Button type="primary" htmlType="submit" onClick = {this.login.bind(this)} className="login-form-button">
                                                 登录
                                             </Button>
                                         </FormItem>
                                     </Col>
                                 </Row>
-
                             </Form>
                         </div>
                     </div>
-                </div>
+                </div>}
             </div>
         )
     }

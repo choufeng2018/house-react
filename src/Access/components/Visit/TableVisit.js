@@ -62,9 +62,9 @@ export default class TableVisit extends Component{
         dataIndex: 'visit_rela',
         key: 'visit_rela'
     },{
-        title: '访问活动',
-        dataIndex: 'visit_acti',
-        key: 'visit_acti'
+        title: '手机号',
+        dataIndex: 'visit_tel',
+        key: 'visit_tel'
     },{
         title: '访问时间',
         // dataIndex: 'visit_entry',
