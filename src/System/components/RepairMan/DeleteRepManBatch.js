@@ -68,8 +68,8 @@ export default class DeleteRepManBatch extends Component{
         key: 'repman_no'
     },{
         title: '姓名',
-        dataIndex: 'repman_name',
-        key: 'repman_name'
+        dataIndex: 'user_name',
+        key: 'user_name'
     },{
         title: '性别',
         dataIndex: 'repman_sex',

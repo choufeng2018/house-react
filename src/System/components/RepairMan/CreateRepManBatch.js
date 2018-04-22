@@ -39,7 +39,7 @@ export default class CreateRepManBatch extends Component{
             return {
                 index: index + 1,
                 repman_no: item[0],
-                repman_name: item[1],
+                user_name: item[1],
                 repman_sex: item[2],
                 repman_tel: item[3],
                 repman_adr: item[4]
@@ -106,8 +106,8 @@ export default class CreateRepManBatch extends Component{
         key: 'repman_no'
     },{
         title: '姓名',
-        dataIndex: 'repman_name',
-        key: 'repman_name'
+        dataIndex: 'user_name',
+        key: 'user_name'
     },{
         title: '性别',
         dataIndex: 'repman_sex',

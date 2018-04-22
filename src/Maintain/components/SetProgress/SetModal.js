@@ -46,13 +46,13 @@ export default class SetModal extends Component{
                     {   this.state.update ?
                         <Steps current={this.state.current}>
                             <Step title="接单" />
-                            <Step title="维修" />
-                            <Step title="维修" />
+                            <Step title="维修中" />
+                            <Step title="已维修" />
                             <Step title="评价" />
                         </Steps> : <Steps current={parseInt(progressData[0].current)}>
                             <Step title="接单" />
-                            <Step title="维修" />
-                            <Step title="维修" />
+                            <Step title="维修中" />
+                            <Step title="已维修" />
                             <Step title="评价" />
                         </Steps>
                 }

@@ -45,7 +45,7 @@ export default class OrderTable extends Component{
         this.setState({spin: true})
         const {actions: {getOrder}} = this.props;
         let login_info = JSON.parse(getCookie('login'));
-        let rst = await getOrder({person: login_info[0].owner_name})
+        let rst = await getOrder({person: login_info[0].user_name})
         let dataSource1 = [], dataSource2 = [];
         if (rst) {
             rst.forEach((item, index) => {

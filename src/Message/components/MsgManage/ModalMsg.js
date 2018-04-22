@@ -26,7 +26,7 @@ class ModalMsg extends Component{
                     msg_receive: values['msg_receive'],
                     msg_content: this.state.editorContent,
                     msg_time: moment().format('YYYY-MM-DD hh:mm:ss'),
-                    msg_send: login_info[0].owner_name
+                    msg_send: login_info[0].user_name
                 }
                 let rst = await postMessage({},data);
                 if (rst[0].status === 'ok') {

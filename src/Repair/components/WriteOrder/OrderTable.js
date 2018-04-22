@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Table, Modal, Notification, Divider, Spin, Popconfirm} from 'antd';
+import {Table, Modal, Notification, Divider, Spin, Popconfirm, Input} from 'antd';
 import {Icon} from 'react-fa';
-import {getCookie} from '../../../_platform/cookie'
+import {getCookie} from '../../../_platform/cookie';
+import './search.less';
+const {Search} = Input;
 export default class OrderTable extends Component{
     constructor(props){
         super(props)
@@ -13,6 +15,16 @@ export default class OrderTable extends Component{
     render(){
         return(
             <Spin spinning = {this.state.spin}>
+                <Search onSearch = {(content) => {
+                    if (content === '') {
+                        this.setState({dataSource: this.state.originData});
+                        return ;
+                    }
+                    let arr = this.state.dataSource.filter((item, index) =>(
+                         item.code.indexOf(content) !== -1 || item.content.indexOf(content) !== -1
+                    ))
+                    this.setState({dataSource: arr});
+                }} className='search' placeholder = '请输入报修单编号或报修内容'/>
                 <Table
                     bordered
                     columns = {this.columns}
@@ -33,8 +45,8 @@ export default class OrderTable extends Component{
         const {actions: {getRepair}} = this.props;
         this.setState({spin: true})
         let login_info = JSON.parse(getCookie('login'));
-        let rst = await getRepair({person: login_info[0].owner_name});
-        this.setState({dataSource: rst, spin: false})
+        let rst = await getRepair({person: login_info[0].user_name});
+        this.setState({dataSource: rst, spin: false, originData: rst});
     }
     edit(record){
         const {actions: {setEditData, setWriteShow}} = this.props;

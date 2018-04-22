@@ -9,7 +9,7 @@ const setNoticeData = createAction(`${ID}公告数据`);
 const isFresh = createAction(`${ID}是否刷新界面`);
 const postNotice = createFetchAction(`${SERVICE_API}/notice/index.php`, [], 'POST');
 const getNotice = createFetchAction(`${SERVICE_API}/notice/getData.php`, [], 'GET');
-const deleteNotice = createFetchAction(`${SERVICE_API}/notice/deleteData.php?title={{title}}`, [], 'GET');
+const deleteNotice = createFetchAction(`${SERVICE_API}/notice/deleteData.php?id={{id}}`, [], 'GET');
 const putNotice = createFetchAction(`${SERVICE_API}/notice/putData.php`, [], 'POST');
 export const actions = {
     setNoticeShow,

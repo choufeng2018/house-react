@@ -28,6 +28,9 @@ export class Notice extends Component {
         let rst = await getNotice();
         this.setState({dataSource: rst, spin: false})
     }
+    pagination = {
+        pageSize: 5
+    }
     render(){
         return(
             <Card
@@ -38,6 +41,7 @@ export class Notice extends Component {
                         dataSource = {this.state.dataSource}
                         columns = {this.columns}
                         bordered
+                        pagination = {this.pagination}
                     />
                 </Spin>
                 <Modal

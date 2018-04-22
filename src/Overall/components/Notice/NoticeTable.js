@@ -1,7 +1,9 @@
 import React,{Component} from 'react';
-import {Table, Tabs, Divider, Spin, Popconfirm, Notification} from 'antd';
+import {Table, Tabs, Divider, Spin, Popconfirm, Notification, Input} from 'antd';
 import {Icon} from 'react-fa'
-import '../News/TableStyle.less'
+import '../News/TableStyle.less';
+import './search.less';
+const {Search} = Input;
 export default class NoticeTable extends Component{
     constructor(props){
         super(props);
@@ -27,7 +29,7 @@ export default class NoticeTable extends Component{
                 ...item
             }
         })
-        this.setState({dataSource:data, spin: false});
+        this.setState({dataSource: data, spin: false, originData: data})
     }
     detail(content){
         const {actions:{setNoticeContent, setNoticeDetail}} = this.props;
@@ -41,7 +43,7 @@ export default class NoticeTable extends Component{
     }
     async confirm(record){
         const {actions: {deleteNotice}} = this.props;
-        let rst = await deleteNotice({title: record.title});
+        let rst = await deleteNotice({id: record.id});
         if (rst[0].status === 'ok') {
             Notification.success({
                 message: '删除成功'
@@ -53,14 +55,28 @@ export default class NoticeTable extends Component{
             })
         }
     }
+    pagination = {
+        pageSize: 5
+    }
     render(){
         return(
             <Spin spinning = {this.state.spin}>
+                <Search onSearch = {(content) => {
+                    if (content === '') {
+                        this.setState({dataSource: this.state.originData});
+                        return ;
+                    }
+                    let arr = this.state.dataSource.filter((item, index) =>(
+                         item.title.indexOf(content) !== -1 || item.content.indexOf(content) !== -1 || item.importance.indexOf(content) !== -1
+                    ))
+                    this.setState({dataSource: arr});
+                }} className='search' placeholder = '请输入公告标题或重要程度或内容'/>
                 <Table
                     columns={this.columns}
                     rowKey='index'
                     dataSource = {this.state.dataSource}
                     bordered
+                    pagination = {this.pagination}
                 />
             </Spin>
         )

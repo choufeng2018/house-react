@@ -41,13 +41,13 @@ export default class TableOrder extends Component{
         const {actions: {getRepair}} = this.props;
         this.setState({spin: true})
         let login_info = JSON.parse(getCookie('login'));
-        let rst = await getRepair({receive: login_info[0].repman_name});
+        let rst = await getRepair();
         let dataSource1 = [], dataSource2 = [];
         for (let i = 0; i < rst.length; i++) {
-            if (rst[i].accept === '0') {
-                dataSource1.push(rst[i]);
-            }else{
+            if (rst[i].receive === login_info[0].user_name) {
                 dataSource2.push(rst[i]);
+            }else if(rst[i].accept === '0'){
+                dataSource1.push(rst[i]);
             }
         }
         this.setState({dataSource1, dataSource2, spin: false});
@@ -56,7 +56,7 @@ export default class TableOrder extends Component{
     async acceptOrder(record){
         const {actions: {saveOrderData, acceptOrderAc}} = this.props;
         let login_info = JSON.parse(getCookie("login"));
-        let rst = await acceptOrderAc({code: record.code, receive: login_info[0].repman_name})
+        let rst = await acceptOrderAc({code: record.code, receive: login_info[0].user_name})
         if (rst[0].status === 'ok') {
             Notification.success({
                 message: '接单成功'

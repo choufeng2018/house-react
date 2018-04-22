@@ -18,7 +18,7 @@ class CreateDistri extends Component{
             if (!err) {
                 let data = {
                     owner_no: values['owner_no'],
-                    owner_name: values['owner_name'],
+                    user_name: values['user_name'],
                     owner_birth: values['owner_birth'],
                     owner_sex: values['owner_sex'],
                     owner_house: this.state.dor_name,
@@ -81,7 +81,7 @@ class CreateDistri extends Component{
         if (distriDor.type === 'edit') {
             setFieldsValue({
                 owner_no: editData.owner_no,
-                owner_name: editData.owner_name,
+                user_name: editData.user_name,
                 owner_pay: editData.owner_pay,
                 owner_sex: editData.owner_sex,
                 owner_tel: editData.owner_tel,
@@ -140,7 +140,7 @@ class CreateDistri extends Component{
                     <Row>
                         <Col>
                             <FormItem label = '业主姓名' {...formItemLayout}>
-                                {getFieldDecorator('owner_name',{
+                                {getFieldDecorator('user_name',{
                                     rules: [{required: true, message: '请输入正确的姓名'}]
                                 })(
                                     <Input type = 'text' placeholder = '请输入姓名'/>

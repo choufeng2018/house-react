@@ -33,7 +33,7 @@ export default class TableOrder extends Component{
         const {actions: {getRepair}} = this.props;
         this.setState({spin: true})
         let login_info = JSON.parse(getCookie('login'));
-        let rst = await getRepair({receive: login_info[0].repman_name});
+        let rst = await getRepair({receive: login_info[0].user_name});
         this.setState({dataSource: rst, spin: false});
     }
     columns = [{

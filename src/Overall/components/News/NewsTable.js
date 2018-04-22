@@ -56,6 +56,9 @@ export default class NewsTable extends Component{
             })
         }
     }
+    pagination = {
+        pageSize: 5
+    }
     render(){
         return (
             <Spin spinning = {this.state.spin}>
@@ -63,6 +66,7 @@ export default class NewsTable extends Component{
                     columns = {this.columns}
                     dataSource = {this.state.dataSource}
                     bordered
+                    pagination = {this.pagination}
                 />
             </Spin>
         )

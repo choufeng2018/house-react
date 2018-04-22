@@ -81,9 +81,9 @@ class SelfPassStu extends Component{
                     <Row>
                         <Col offset = {7} span = {8}>
                             <FormItem {...formItemLayout} label='姓名'>
-                                {getFieldDecorator('owner_name',{
+                                {getFieldDecorator('user_name',{
                                     rules: [{required: true, message: '请输入姓名'}],
-                                    initialValue: this.state.login_info[0].owner_name
+                                    initialValue: this.state.login_info[0].user_name
                                 })(
                                     <Input type="text" disabled placeholder = '请输入姓名'/>
                                 )}

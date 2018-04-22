@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Table, Notification, Button, Divider, Spin, Popconfirm} from 'antd';
+import {Table, Notification, Button, Divider, Spin, Popconfirm,Input} from 'antd';
 import {Icon} from 'react-fa';
 import moment from 'moment';
+import './search.less';
+const {Search} = Input;
 export default class TableVisit extends Component{
     constructor(props){
         super(props);
@@ -14,7 +16,7 @@ export default class TableVisit extends Component{
         const {actions: {getData}} = this.props;
         this.setState({loading: true})
         let rst = await getData()
-        this.setState({dataSource: rst, loading: false});
+        this.setState({dataSource: rst, loading: false, originData: rst});
     }
     componentWillReceiveProps(nextProps){
         const {actions: {isFresh}, fresh} = nextProps;
@@ -40,6 +42,16 @@ export default class TableVisit extends Component{
     render(){
         return (
             <Spin spinning = {this.state.loading}>
+                <Search onSearch = {(content) => {
+                    if (content === '') {
+                        this.setState({dataSource: this.state.originData});
+                        return ;
+                    }
+                    let arr = this.state.dataSource.filter((item, index) =>(
+                         item.visit_name.indexOf(content) !== -1
+                    ))
+                    this.setState({dataSource: arr});
+                }} className='search' placeholder = '请输入来访人姓名'/>
                 <Table
                     columns = {this.columns}
                     dataSource = {this.state.dataSource}

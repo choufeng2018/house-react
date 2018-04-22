@@ -35,8 +35,8 @@ export default class SelfInfoStu extends Component{
         key: 'owner_no'
     },{
         title: '业主姓名',
-        dataIndex: 'owner_name',
-        key: 'owner_name'
+        dataIndex: 'user_name',
+        key: 'user_name'
     },{
         title: '出生年月',
         key: 'owner_birth',

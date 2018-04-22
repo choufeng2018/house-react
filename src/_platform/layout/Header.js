@@ -35,7 +35,7 @@ export default class Header extends Component {
         let name = '';
         switch (login && login[0].flag) {
             case 'stu':{
-                name = login[0].owner_name;
+                name = login[0].user_name;
                 break;
             }
             case 'dor':{
@@ -47,7 +47,7 @@ export default class Header extends Component {
                 break;
             }
             case 'rep': {
-                name = login[0].repman_name;
+                name = login[0].user_name;
                 break;
             }
             default:

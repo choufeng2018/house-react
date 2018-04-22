@@ -9,7 +9,7 @@
     height: 10px;
     border: 1px solid #69d2e7;
     border-radius: 10px;
-    animation: turn 4s linear 4s infinite;
+    animation: turn 3s linear 3s infinite;
 }
 .loader .loading-1:before {
     content: "";
@@ -19,7 +19,7 @@
     height: 100%;
     background: #69d2e7;
     box-shadow: 10px 0px 15px 0px #69d2e7;
-    animation: load 4s linear infinite;
+    animation: load 3s linear infinite;
 }
 .loader .loading-2 {
     width: 100%;

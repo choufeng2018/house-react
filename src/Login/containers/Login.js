@@ -8,7 +8,7 @@ import {injectReducer} from '../../store'
 import {Link} from 'react-router-dom'
 import reducer from '../store/login'
 import img from './img/intro.png';
-import {addCookie, deleteCookie} from '../../_platform/cookie';
+import {addCookie, deleteCookie, getCookie} from '../../_platform/cookie';
 import moment from 'moment';
 import './Login.less';
 import './loading.css';
@@ -70,7 +70,6 @@ class Login extends Component {
                     })
                     let date = moment().format('YYYY-MM-DD');
                     let rst = await setVisit({visit_time: date});
-                    console.log("rst:",rst);
                     // 登录成功，跳转
                     const {history} = this.props;
                     history.replace('/home')
@@ -130,7 +129,8 @@ class Login extends Component {
         setTimeout(() => {
             this.setState({loading: false});
             this.code();
-        }, 3800)
+        }, 2800)
+
         if(this.state.loading){
             return;
         }
@@ -141,9 +141,10 @@ class Login extends Component {
     }
     render(){
         const {actions:{changeAdditionField},form:{validateFields, getFieldDecorator}} = this.props;
+        let login_info = getCookie('login');
         return (
             <div className="wrap">
-                {this.state.loading ? <div className="htmleaf-container">
+                {login_info && this.state.loading ? <div className="htmleaf-container">
             		<div className="demo" >
             	        <div className="container">
             	            <div className="row">

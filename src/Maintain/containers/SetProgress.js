@@ -42,7 +42,7 @@ export default class SetProgress extends Component{
         this.setState({spin: true});
         const {actions: {getOrder}} = this.props;
         let login_info = JSON.parse(getCookie('login'));
-        let receive = login_info[0].repman_name;
+        let receive = login_info[0].user_name;
         let rst = await getOrder({receive: receive});
         this.setState({dataSource: rst, spin: false});
     }

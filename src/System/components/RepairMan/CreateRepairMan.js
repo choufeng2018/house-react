@@ -17,7 +17,7 @@ class CreateRepairMan extends Component {
             if (!err) {
                 let data = {
                     repman_no: values['repman_no'],
-                    repman_name: values['repman_name'],
+                    user_name: values['user_name'],
                     repman_sex: values['repman_sex'],
                     repman_tel: values['repman_tel'],
                     repman_adr: values['repman_adr'],
@@ -62,7 +62,7 @@ class CreateRepairMan extends Component {
         if (createShow.type == 'edit') {
             setFieldsValue({
                 repman_no: editData[0].repman_no,
-                repman_name: editData[0].repman_name,
+                user_name: editData[0].user_name,
                 repman_sex: editData[0].repman_sex,
                 repman_tel: editData[0].repman_tel,
                 repman_adr: editData[0].repman_adr,
@@ -99,7 +99,7 @@ class CreateRepairMan extends Component {
                     <Row>
                         <Col>
                             <FormItem {...this.formItemLayout} label = '姓名'>
-                                {getFieldDecorator('repman_name',{
+                                {getFieldDecorator('user_name',{
                                     rules: [{required: true, message: '请输入姓名'}],
                                     initialValue: ''
                                 })(

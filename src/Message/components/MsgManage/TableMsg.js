@@ -15,7 +15,7 @@ export default class TableMsg extends Component{
         let login_info = JSON.parse(getCookie('login'));
         this.setState({spin: true});
         const {actions: {getMessage}} = this.props;
-        let rst = await getMessage({msg_send: login_info[0].owner_name});
+        let rst = await getMessage({msg_send: login_info[0].user_name});
         let dataSource = rst.map((item, index) => {
             return {
                 index: index + 1,
