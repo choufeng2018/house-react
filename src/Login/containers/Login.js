@@ -30,9 +30,6 @@ class Login extends Component {
             loading: true
         }
     }
-    // componentDidMount(){
-    //     injectReducer('login', reducer);
-    // }
     login(){
         const {
             actions:{getLogin, getPermission, setVisit},

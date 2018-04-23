@@ -85,7 +85,7 @@ export default class TableRepairMan extends Component {
         return(
             <Spin spinning = {this.state.spin}>
                 <section>
-                    <Button onClick={this.addSingle.bind(this)}>单个添加维修人员信息</Button>
+                    <Button onclick={this.addSingle.bind(this)}>单个添加维修人员信息</Button>
                     <Divider type='vertical' />
                     <Button onClick = {this.addBatch.bind(this)}>批量添加维修人员信息</Button>
                     <Divider type='vertical' />
