@@ -1,2 +1,3 @@
 import Distri from './Distri';
-export {Distri};
+import Owner from './Owner';
+export {Distri, Owner};

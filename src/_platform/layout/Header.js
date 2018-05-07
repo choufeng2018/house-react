@@ -169,16 +169,16 @@ export default class Header extends Component {
 		path: '/message',
 		icon: <Icon name="comments"/>
 	},{
-		key: 'setup',
-		id: 'setup',
-		title: '系统配置',
-		path: '/system',
-		icon: <Icon name="gear"/>
-	},{
         key: 'self',
         id: 'self',
         title: '个人中心',
         path: '/self',
         icon: <Icon name='user-circle-o' />
-    }]
+    },{
+		key: 'setup',
+		id: 'setup',
+		title: '系统配置',
+		path: '/system',
+		icon: <Icon name="gear"/>
+	}]
 }

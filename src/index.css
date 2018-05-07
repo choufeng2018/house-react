@@ -12,3 +12,7 @@ body {
 h1{
     text-align: center;
 }
+input:-webkit-autofill {
+    /* 用白色的内置阴影覆盖输入框的黄色 */
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+}

@@ -74,7 +74,7 @@ class Login extends Component {
                     Notification.warn({
                         icon: <Icon type="frown-o" style={{ color: '#108ee9' }}/>,
                         duration:2,
-                        message:'登录失败!!'
+                        message:'账号或密码不匹配!!'
                     })
                 }
             }
@@ -138,10 +138,9 @@ class Login extends Component {
     }
     render(){
         const {actions:{changeAdditionField},form:{validateFields, getFieldDecorator}} = this.props;
-        let login_info = getCookie('login');
         return (
             <div className="wrap">
-                {login_info && this.state.loading ? <div className="htmleaf-container">
+                {this.state.loading ? <div className="htmleaf-container">
             		<div className="demo" >
             	        <div className="container">
             	            <div className="row">

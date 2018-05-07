@@ -28,11 +28,18 @@ export default class Accomm extends Component{
         )
     }
     static menus = [{
+        key: 'Owner',
+        id: 'owner',
+        path: '/accomm',
+        name: '业主信息',
+        exact: true,
+        icon: <Icon name="info-circle"/>
+    },{
         key: 'Distri',
         id: 'distri',
-        path: '/accomm',
+        path: '/accomm/register',
         name: '业主登记',
         exact: true,
-        icon: <Icon name="calendar-check-o"/>
+        icon: <Icon name="registered"/>
     }]
 }

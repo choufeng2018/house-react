@@ -1,4 +1,4 @@
-export const DOMAIN = "http://2048v9t891.iok.la";
+export const DOMAIN = "http://localhost";
 export const PORT = "80";
 export const LOGIN_API = `${DOMAIN}:${PORT}/house/login`;
 export const SERVICE_API = `${DOMAIN}:${PORT}/house/service`;

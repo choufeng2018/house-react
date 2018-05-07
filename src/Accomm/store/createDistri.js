@@ -19,6 +19,8 @@ const getDistri = createFetchAction(`${SERVICE_API}/owner/getData.php?owner_hous
 const deleteDistri = createFetchAction(`${SERVICE_API}/owner/deleteData.php/?owner_no={{owner_no}}`, [], "GET");
 const saveDistriData = createAction(`${ID}保存某个宿舍的入住详情`);
 const saveSpinStatus = createAction(`${ID}保存spin框的状态`);
+const getOwnerAll = createFetchAction(`${SERVICE_API}/owner/getOwnerAll.php`, [], "GET")
+const getOwnerByName = createFetchAction(`${SERVICE_API}/owner/getDataByName.php/?user_name={{user_name}}`, [], "GET");
 export const actions = {
     getBuilding,
     saveBuilding,
@@ -36,7 +38,9 @@ export const actions = {
     deleteDistri,
     saveDistriData,
     saveSpinStatus,
-    putDistri
+    putDistri,
+    getOwnerAll,
+    getOwnerByName
 }
 export default handleActions({
     [saveBuilding]: (state, {payload}) => ({

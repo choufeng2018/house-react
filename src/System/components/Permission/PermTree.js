@@ -10,7 +10,7 @@ export default class PermTree extends Component{
     }
     componentDidMount(){
         const tree = [{
-            title: '管理员',
+            title: '物业管理员',
             key: 'dor'
         },{
             title: '业主',
