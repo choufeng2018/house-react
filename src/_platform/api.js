@@ -1,10 +1,10 @@
 export const DOMAIN = "http://localhost";
 export const PORT = "80";
-export const LOGIN_API = `${DOMAIN}:${PORT}/house/login`;
-export const SERVICE_API = `${DOMAIN}:${PORT}/house/service`;
-export const FILE_API = `${DOMAIN}:${PORT}/house/fileService`
+export const LOGIN_API = `${DOMAIN}:${PORT}/house-php/login`;
+export const SERVICE_API = `${DOMAIN}:${PORT}/house-php/service`;
+export const FILE_API = `${DOMAIN}:${PORT}/house-php/fileService`
 // 文件下载api
-export const DOWNLOAD_API = `${DOMAIN}:${PORT}/house/fileService`;
+export const DOWNLOAD_API = `${DOMAIN}:${PORT}/house-php/fileService`;
 // 宿管信息批量上传模板下载
 export const DORADMIN_MUBAN =  `${DOWNLOAD_API}/fileDownload.php`;
 export const REPMAN_MUBAN =  `${DOWNLOAD_API}/fileDownloadRep.php`;
