@@ -37,6 +37,7 @@ class Login extends Component {
         } = this.props;
         validateFields(async (err, values) => {
             if (!err) {
+                console.log("this.state.checkCode:",this.state.checkCode)
                 if (values['code'] !== this.state.checkCode) {
                     Notification.warning({
                         message: '验证码错误'
