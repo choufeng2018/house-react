@@ -17,6 +17,7 @@ const TabPane = Tabs.TabPane;
         return {...goods}
     },
     dispatch => ({
+        // bindActionCreators将多个action creator与dispatch绑定起来
         actions: bindActionCreators({...platformActions, ...actions}, dispatch)
     })
 )

@@ -37,7 +37,7 @@ export default class PermTable extends Component{
         let rst = await setPermission({}, data)
         if (rst[0].status === 'ok') {
             Notification.success({
-                message: '配置成功'
+                message: '权限配置成功'
             })
             let rsts = await getPermissions();
             savePermissions(rsts);
@@ -50,7 +50,7 @@ export default class PermTable extends Component{
             this.setState({edit: false});
         }else{
             Notification.warning({
-                message: '配置失败'
+                message: '权限配置失败'
             })
         }
     }

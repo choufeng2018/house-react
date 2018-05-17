@@ -66,6 +66,10 @@ export let MODULES = [{
     checked: false,
     key: 'accomm',
     children: [{
+        module: '业主信息',
+        checked: false,
+        key: 'owner'
+    },{
         module: '业主登记',
         checked: false,
         key: 'distri'

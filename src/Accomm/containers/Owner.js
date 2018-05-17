@@ -45,9 +45,9 @@ export default class Owner extends Component{
         return (
             <div style={{overflow: 'hidden', 'position':'relative'}}>
                 <DynamicTitle title = "业主信息" {...this.props} />
-                <Search className = 'search' placeholder='请输入名字关键词' onSearch = {this.search.bind(this)}/>
+                <Search className = 'searchOwner' placeholder='请输入名字关键词' onSearch = {this.search.bind(this)}/>
                 <Tabs className='tab'>
-                    <TabPane tab="报修单列表" key="1">
+                    <TabPane tab="用户列表" key="1">
                         <Spin spinning = {this.state.spin}>
                             <Table
                                 columns = {this.columns}
