@@ -18,12 +18,13 @@ import {TableAdmin, CreateAdmin, CreateAdminBatch, DeleteAdminBatch, EditAdmin} 
 )
 export default class DorAdmin extends Component{
     render(){
+        const {createBatch = false} = this.props;
         return (
             <div style={{overflow: 'hidden', padding: '20px', 'position':'relative'}}>
                 <DynamicTitle title= '管理员信息' {...this.props} />
                 <TableAdmin {...this.props} />
                 <CreateAdmin {...this.props} />
-                <CreateAdminBatch {...this.props} />
+                {createBatch && <CreateAdminBatch {...this.props} />}
                 <DeleteAdminBatch {...this.props} />
                 <EditAdmin {...this.props} />
             </div>

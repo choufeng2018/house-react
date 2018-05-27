@@ -31,38 +31,38 @@ class CreateHouse extends Component{
                 onOk = {this.ok.bind(this)}
                 onCancel = {this.cancel.bind(this)}
             >
-                <h1 style={{textAlign: 'center'}}>新建宿舍号</h1>
+                <h1 style={{textAlign: 'center'}}>新建房屋</h1>
                 <Divider><Icon name='cut' /></Divider>
                 <Form>
                     <Row>
                         <Col offset = {3} span = {16}>
-                            <FormItem {...formItemLayout} label='宿舍编号'>
+                            <FormItem {...formItemLayout} label='房屋编号'>
                                 {getFieldDecorator('dor_no',{
-                                    rules: [{required: true, message: '请输入宿舍编号'}]
+                                    rules: [{required: true, message: '请输入房屋编号'}]
                                 })(
-                                    <Input type='text' placeholder='请输入宿舍编号'/>
+                                    <Input type='text' placeholder='请输入房屋编号'/>
                                 )}
                             </FormItem>
                         </Col>
                     </Row>
                     <Row>
                         <Col offset = {3} span = {16}>
-                            <FormItem {...formItemLayout} label='宿舍名称'>
+                            <FormItem {...formItemLayout} label='房屋名称'>
                                 {getFieldDecorator('dor_name',{
-                                    rules: [{required: true, message: '请输入宿舍名称'}]
+                                    rules: [{required: true, message: '请输入房屋名称'}]
                                 })(
-                                    <Input type='text' placeholder='请输入宿舍名称'/>
+                                    <Input type='text' placeholder='请输入房屋名称'/>
                                 )}
                             </FormItem>
                         </Col>
                     </Row>
                     <Row>
                         <Col offset = {3} span = {16}>
-                            <FormItem {...formItemLayout} label='宿舍描述'>
+                            <FormItem {...formItemLayout} label='房屋描述'>
                                 {getFieldDecorator('dor_desc',{
-                                    rules: [{required: false, message: '请输入宿舍描述'}]
+                                    rules: [{required: false, message: '请输入房屋描述'}]
                                 })(
-                                    <Input type='text' placeholder='请输入宿舍描述' />
+                                    <Input type='text' placeholder='请输入房屋描述' />
                                 )}
                             </FormItem>
                         </Col>

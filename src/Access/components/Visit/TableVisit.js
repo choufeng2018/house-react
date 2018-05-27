@@ -100,8 +100,8 @@ export default class TableVisit extends Component{
         render: (text, record, index) => {
             return (
                 <div>
-                    <a><Icon name = 'edit'/></a>
-                    <Divider type = 'vertical' />
+                    {/* <a><Icon name = 'edit'/></a> */}
+                    {/* <Divider type = 'vertical' /> */}
                     <Popconfirm onConfirm = {this.confirm.bind(this, record)} title = '确认要删除吗' okText = '是' cancelText='否'>
                         <a><Icon name = 'trash'/></a>
                     </Popconfirm>

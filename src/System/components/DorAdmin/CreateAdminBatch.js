@@ -33,6 +33,7 @@ export default class CreateAdminBatch extends Component{
     // 下载文件
     download(){
         let a = document.createElement('a');
+        console.log("DORADMIN_MUBAN:",DORADMIN_MUBAN);
         a.href = `${DORADMIN_MUBAN}`;
         a.click();
     }
@@ -51,7 +52,6 @@ export default class CreateAdminBatch extends Component{
     render(){
         const {createBatch = false} = this.props;
         let jthis = this;
-        console.log("DORADMIN_MUBAN:",DORADMIN_MUBAN);
         const props = {
             name: 'file',
             action: `${FILE_API}/fileUpload.php`,

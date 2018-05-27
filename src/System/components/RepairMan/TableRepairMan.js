@@ -11,6 +11,7 @@ export default class TableRepairMan extends Component {
         }
     }
     addSingle(){
+        console.log(11);
         const {actions: {setCreateShow}} = this.props;
         setCreateShow({show:true, type:'add'});
     }
@@ -85,7 +86,7 @@ export default class TableRepairMan extends Component {
         return(
             <Spin spinning = {this.state.spin}>
                 <section>
-                    <Button onclick={this.addSingle.bind(this)}>单个添加维修人员信息</Button>
+                    <Button onClick={this.addSingle.bind(this)}>单个添加维修人员信息</Button>
                     <Divider type='vertical' />
                     <Button onClick = {this.addBatch.bind(this)}>批量添加维修人员信息</Button>
                     <Divider type='vertical' />

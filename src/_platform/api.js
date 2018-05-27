@@ -1,4 +1,4 @@
-export const DOMAIN = "http://localhost";
+export const DOMAIN = "http://127.0.0.1";
 export const PORT = "80";
 export const LOGIN_API = `${DOMAIN}:${PORT}/house-php/login`;
 export const SERVICE_API = `${DOMAIN}:${PORT}/house-php/service`;

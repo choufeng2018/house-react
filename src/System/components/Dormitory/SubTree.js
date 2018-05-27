@@ -15,7 +15,7 @@ export default class SubTree extends Component{
         const {selectNode = [], actions: {showCreateDor}} = this.props;
         if (selectNode.length === 0 || selectNode[0].split("--")[4] !== "building") {
             Notification.warning({
-                message: '请先选中宿舍楼',
+                message: '请先选中单元楼',
                 duration: 2
             })
             return;
@@ -88,6 +88,7 @@ export default class SubTree extends Component{
             }
             setTimeout(() => {
                 let arr = rst.map((item, indx) => {
+                    console.log(item);
                     return {
                         buil_no: item.dor_no,
                         buil_name: item.dor_name,
